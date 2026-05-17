@@ -17,6 +17,8 @@ int main() {
         return 1;
     }
 
+    std::cout << "2 раззработчик" << std::endl;
+
     run_analysis(path);
     return 0;
 }
