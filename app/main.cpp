@@ -20,5 +20,7 @@ int main() {
     std::cout << "2 раззработчик" << std::endl;
 
     run_analysis(path);
+
+    std::cout << "2 раззработчик" << std::endl;
     return 0;
 }
