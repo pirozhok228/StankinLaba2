@@ -18,5 +18,8 @@ int main() {
     }
 
     run_analysis(path);
+
+    std::cout << "Запуск программы..." << std::endl;
+    
     return 0;
 }
