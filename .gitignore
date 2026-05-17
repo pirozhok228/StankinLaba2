@@ -1,0 +1,8 @@
+/logger.txt
+/strings.txt
+
+CMakeLists.txt
+
+build/
+
+.vscode/
