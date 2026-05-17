@@ -18,5 +18,8 @@ int main() {
     }
 
     run_analysis(path);
+
+    std::cout << "Первый разработчик" << std::endl;
+
     return 0;
 }
