@@ -28,9 +28,7 @@ void log_close() {
     }
 }
 
-void log_message(LogLevel level, const std::string& message) {
-    // TODO: сформировать строку с временной меткой и уровнем,
-    // записать в файл или в консоль
+std::string getStrLevel(LogLevel level) {
     std::string strLevel;
     if (level == 0) {
         strLevel = "INFO";
@@ -41,16 +39,24 @@ void log_message(LogLevel level, const std::string& message) {
     else {
         strLevel = "ERROR";
     }
+    return strLevel;
+}
 
+std::string getStrTime() {
     time_t now;
     std::time(&now);
     std::string strTime = ctime(&now);
+}
+
+void log_message(LogLevel level, const std::string& message) {
+    // TODO: сформировать строку с временной меткой и уровнем,
+    // записать в файл или в консоль
 
     if (isConsole) {
-        std::cout << strLevel << " " << strTime << "\n" << message << std::endl;
+        printf("[%s] Time: %s\n%s", getStrLevel(level), getStrTime(), message);
     }
     else {
-        logFile << strLevel << " " << strTime << ": " << message << "\n";
+        logFile <<"[" << getStrLevel(level) << "]" << " Time: " << getStrTime() << "\n" << message << "\n";
         //logFile.close();
     }
 }
