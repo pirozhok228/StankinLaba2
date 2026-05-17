@@ -27,7 +27,7 @@ void log_close() {
         logFile.close();
     }
 }
-
+// функция для получения уровня лога в формате строки
 std::string getStrLevel(LogLevel level) {
     std::string strLevel;
     if (level == 0) {
@@ -42,10 +42,18 @@ std::string getStrLevel(LogLevel level) {
     return strLevel;
 }
 
+// функция для получения времени лога в формате строки
 std::string getStrTime() {
-    time_t now;
-    std::time(&now);
-    std::string strTime = ctime(&now);
+    try
+    {
+        time_t now;
+        std::time(&now);
+        std::string strTime = ctime(&now);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 void log_message(LogLevel level, const std::string& message) {
